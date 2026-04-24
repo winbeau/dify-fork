@@ -42,6 +42,7 @@ The codebase is split into:
 
 - Unless the task explicitly targets local source development, assume Dify is deployed on a server through `docker/docker-compose.yaml`.
 - The server-facing HTTP entrypoint is expected to stay on port `80`. In the Docker setup this is controlled by `EXPOSE_NGINX_PORT=80` and mapped by the `nginx` service.
+- When changing Docker deployment environment variables, edit the checked-in sample env files such as `docker/.env.example` first. The server flow is to copy the sample file to `.env`, not to rely on local override files.
 - Standard server startup flow:
   - `cd docker`
   - `cp .env.example .env` if `.env` does not exist yet
